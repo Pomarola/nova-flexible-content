@@ -228,8 +228,13 @@ export default {
             //     this.order.push(group.key);
             // }
 
-            // this.groups[group.key] = group;
-            // this.order.push(group.key);
+            if (!firstLoad) {
+                this.groups[group.key] = group;
+                this.order.push(group.key);
+            } else {
+                this.groups[group.key] = {}
+                this.order.push(group.key);
+            }
         },
 
         /**
