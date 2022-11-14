@@ -213,7 +213,8 @@ export default {
         addGroup(layout, attributes, key, collapsed, firstLoad) {
             if(!layout) return;
 
-            collapsed = collapsed || false;
+            //collapsed = collapsed || false;
+            collapsed = firstLoad ? true : false
 
             // readonlyA = firstLoad ? true : false;
 

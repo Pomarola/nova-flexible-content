@@ -112,7 +112,7 @@ export default {
         return {
             removeMessage: false,
             collapsed: this.group.collapsed,
-            readonly: this.group.readonly,
+            readonly: this.group.collapsed,
             showButtons: this.field.showButtons
         };
     },
