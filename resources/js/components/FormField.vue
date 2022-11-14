@@ -139,7 +139,6 @@ export default {
                     layout: group.layout,
                     key: group.key,
                     attributes: group.attributes,
-                    readonly: true
                 });
 
                 // Attach the files for formData appending
@@ -168,9 +167,6 @@ export default {
             }
 
             registered.push(attribute);
-            registered.push({
-                    readonly: true,
-                });
 
             formData.set('___nova_flexible_content_fields', JSON.stringify(registered));
         },
@@ -229,8 +225,8 @@ export default {
                 }))
             }
 
-            this.groups[group.key] = group;
-            this.order.push(group.key);
+            // this.groups[group.key] = group;
+            // this.order.push(group.key);
         },
 
         /**
