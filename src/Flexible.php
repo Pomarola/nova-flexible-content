@@ -100,6 +100,12 @@ class Flexible extends Field
         return $this->withMeta(['button' => $label]);
     }
 
+
+    public function showButtons(bool $value = true)
+    {
+        return $this->withMeta(['showButtons' => $value]);
+    }
+
     /**
      * Make the flexible content take up the full width
      * of the form. Labels will sit above
