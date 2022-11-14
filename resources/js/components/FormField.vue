@@ -215,10 +215,10 @@ export default {
 
             collapsed = collapsed || false;
 
-            readonlyA = firstLoad ? true : false;
+            // readonlyA = firstLoad ? true : false;
 
             let fields = attributes || JSON.parse(JSON.stringify(layout.fields)),
-                group = new Group(layout.name, layout.title, fields, this.currentField, key, readonlyA, collapsed);
+                group = new Group(layout.name, layout.title, fields, this.currentField, key, collapsed);
 
             // if (firstLoad) {
             //     fields = fields.map((i) => ({

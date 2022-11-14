@@ -57,7 +57,6 @@ export default {
                 item.attributes,
                 this.field,
                 item.key,
-                true
             );
         },
     }
