@@ -1,12 +1,12 @@
 export default class Group {
 
-    constructor(name, title, fields, field, key, collapsed = true) {
+    constructor(name, title, fields, field, key, readonly, collapsed = true) {
         this.name = name;
         this.title = title;
         this.fields = fields;
         this.key = key || this.getTemporaryUniqueKey(field.attribute);
         this.collapsed = collapsed;
-        this.readonly = field.readonly;
+        this.readonly = readonly;
 
         this.renameFields();
     }
