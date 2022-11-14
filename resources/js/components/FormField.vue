@@ -138,7 +138,7 @@ export default {
                 this.value.push({
                     layout: group.layout,
                     key: group.key,
-                    attributes: group.attributes,
+                    attributes: group.attributes
                 });
 
                 // Attach the files for formData appending
