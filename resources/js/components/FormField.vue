@@ -218,11 +218,14 @@ export default {
             let fields = attributes || JSON.parse(JSON.stringify(layout.fields)),
                 group = new Group(layout.name, layout.title, fields, this.currentField, key, collapsed);
 
-            if (true) {
+            if (firstLoad) {
                 fields = fields.map((i) => ({
                     ...i,
                     readonly: true
                 }))
+
+                this.groups[group.key] = group;
+                this.order.push(group.key);
             }
 
             // this.groups[group.key] = group;
