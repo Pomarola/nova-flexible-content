@@ -138,7 +138,8 @@ export default {
                 this.value.push({
                     layout: group.layout,
                     key: group.key,
-                    attributes: group.attributes
+                    attributes: group.attributes,
+                    readonly: true
                 });
 
                 // Attach the files for formData appending
@@ -167,6 +168,9 @@ export default {
             }
 
             registered.push(attribute);
+            registered.push({
+                    readonly: true,
+                });
 
             formData.set('___nova_flexible_content_fields', JSON.stringify(registered));
         },
@@ -218,7 +222,7 @@ export default {
             let fields = attributes || JSON.parse(JSON.stringify(layout.fields)),
                 group = new Group(layout.name, layout.title, fields, this.currentField, key, collapsed);
 
-            if (firstLoad) {
+            if (true) {
                 fields = fields.map((i) => ({
                     ...i,
                     readonly: true
