@@ -135,9 +135,9 @@ export default {
                 classes.push('rounded-tr-lg');
             }
 
-            if (this.readonly || this.collapsed) {
-                classes.push('hidden');
-            }
+            // if (this.readonly || this.collapsed) {
+            //     classes.push('hidden');
+            // }
 
             return classes;
         }
