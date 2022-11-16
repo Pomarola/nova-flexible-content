@@ -191,7 +191,7 @@ export default {
                 const attr = firstLoad ? {
                     ...this.value[i].attributes,
                     readonly: true
-                } : this.value[i].attributes,
+                } : this.value[i].attributes;
                 this.addGroup(
                     this.getLayout(this.value[i].layout),
                     attr,
