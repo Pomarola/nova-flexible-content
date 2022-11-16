@@ -178,25 +178,23 @@ export default {
             this.value = value || [];
             this.files = {};
 
-            this.populateGroups(false);
+            this.populateGroups();
         },
 
         /**
          * Set the displayed layouts from the field's current value
          */
-         populateGroups(firstLoad = false) {
+
+        populateGroups(firstLoad = false) {
             this.order.splice(0, this.order.length);
             this.groups = {};
             for (var i = 0; i < this.value.length; i++) {
-                const attr = firstLoad ? {
-                    ...this.value[i].attributes,
-                    readonly: true
-                } : this.value[i].attributes;
                 this.addGroup(
                     this.getLayout(this.value[i].layout),
-                    attr,
+                    this.value[i].attributes,
                     this.value[i].key,
-                    this.currentField.collapsed
+                    this.currentField.collapsed,
+                    firstLoad
                 );
             }
         },
@@ -212,7 +210,7 @@ export default {
         /**
          * Append the given layout to flexible content's list
          */
-        addGroup(layout, attributes, key, collapsed) {
+        addGroup(layout, attributes, key, collapsed, firstLoad) {
             if(!layout) return;
 
             //collapsed = collapsed || false;
