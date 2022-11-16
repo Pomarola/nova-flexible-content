@@ -112,7 +112,8 @@ export default {
         return {
             removeMessage: false,
             collapsed: this.group.collapsed,
-            showButtons: this.field.showButtons
+            showButtons: this.field.showButtons,
+            readonly : this.group.collapsed,
         };
     },
 
@@ -134,7 +135,7 @@ export default {
                 classes.push('rounded-tr-lg');
             }
 
-            if (this.collapsed) {
+            if (this.collapsed || this.readonly) {
                 classes.push('hidden');
             }
 
