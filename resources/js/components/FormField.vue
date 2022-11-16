@@ -214,7 +214,11 @@ export default {
          */
         addGroup(layout, attributes, key, collapsed) {
             if(!layout) return;
+
             collapsed = collapsed || false;
+
+            // readonlyA = firstLoad ? true : false;
+
             let fields = attributes || JSON.parse(JSON.stringify(layout.fields)),
                 group = new Group(layout.name, layout.title, fields, this.currentField, key, collapsed);
             this.groups[group.key] = group;
