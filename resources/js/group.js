@@ -1,9 +1,10 @@
 export default class Group {
 
-    constructor(name, title, fields, field, key, collapsed = true) {
+    constructor(name, title, fields, field, key, collapsed = false, firstLoad = false) {
         this.name = name;
         this.title = title;
-        this.fields = fields;
+        // Si firstLoad es true, forzar que todos los fields sean readonly.
+        this.fields = firstLoad ? fields.map(attributes => ({ ...attributes, readonly: true })) : fields;
         this.key = key || this.getTemporaryUniqueKey(field.attribute);
         this.collapsed = collapsed;
         this.readonly = field.readonly;

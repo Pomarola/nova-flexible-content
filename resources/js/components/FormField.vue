@@ -112,12 +112,15 @@ export default {
     methods: {
         /*
          * Set the initial, internal value for the field.
+         * Esta funcion se llama por unica vez cuando el componente se crea. Le vamos a pasar el valod firstLoad en true al populate groups.
          */
         setInitialValue() {
             this.value = this.currentField.value || [];
             this.files = {};
 
-            this.populateGroups(true);
+            const firstLoad = true
+
+            this.populateGroups(firstLoad);
             this.$nextTick(this.initSortable.bind(this));
         },
 
@@ -184,7 +187,6 @@ export default {
         /**
          * Set the displayed layouts from the field's current value
          */
-
         populateGroups(firstLoad = false) {
             this.order.splice(0, this.order.length);
             this.groups = {};
@@ -213,12 +215,8 @@ export default {
         addGroup(layout, attributes, key, collapsed, firstLoad) {
             if(!layout) return;
 
-            //collapsed = collapsed || false;
-
-            collapsed = firstLoad ? true : false
-
             let fields = attributes || JSON.parse(JSON.stringify(layout.fields)),
-                group = new Group(layout.name, layout.title, fields, this.currentField, key, collapsed);
+                group = new Group(layout.name, layout.title, fields, this.currentField, key, collapsed, firstLoad);
             this.groups[group.key] = group;
             this.order.push(group.key);
         },
